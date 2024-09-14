@@ -1,0 +1,57 @@
+$min-xs: 300px;
+$min-sm: 600px;
+$min-md: 960px;
+$min-lg: 1280px;
+$min-xl: 1920px;
+$min-xxl: 2560px;
+
+@mixin generate-styles($class-name, $breakpoint-name: '', $from: 1, $to: 32) {
+    @if ($breakpoint-name !='') {
+        $breakpoint-name: $breakpoint-name + '-';
+    }
+
+    @for $size from $from through $to {
+        .#{$class-name}-#{$breakpoint-name}#{$size} {
+            @content($size);
+        }
+    }
+}
+
+@mixin generate($class-name, $from: 1, $to: 32) {
+    @include generate-styles($class-name, '', $from, $to) using ($size) {
+        @content($size);
+    }
+
+    @media screen and (min-width: $min-sm) {
+        @include generate-styles($class-name, 'sm', $from, $to) using ($size) {
+            @content($size);
+        }
+    }
+
+    @media screen and (min-width: $min-md) {
+        @include generate-styles($class-name, 'md', $from, $to) using ($size) {
+            @content($size);
+        }
+    }
+
+    @media screen and (min-width: $min-lg) {
+        @include generate-styles($class-name, 'lg', $from, $to) using ($size) {
+            @content($size);
+        }
+    }
+
+    @media screen and (min-width: $min-xl) {
+        @include generate-styles($class-name, 'xl', $from, $to) using ($size) {
+            @content($size);
+        }
+    }
+}
+
+:export {
+    min-sm: $min-sm;
+    min-md: $min-md;
+    min-lg: $min-lg;
+    min-xl: $min-xl;
+    min-xxl: $min-xxl;
+    generate: generate
+}

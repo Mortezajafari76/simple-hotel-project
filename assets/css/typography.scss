@@ -1,0 +1,90 @@
+@use "breakpoints" as breakpoints;
+
+$font_weights: (
+  thin: 100,
+  light: 300,
+  regular: normal,
+  semi-bold: 500,
+  bold: bold,
+  extra-bold: 700,
+  black: 800,
+  extra-black: 900,
+);
+
+@mixin font-face($fontFamily, $name, $font_weight, $size) {
+  @font-face {
+    font-family: $fontFamily;
+    font-weight: $size;
+    src: url('@/assets/fonts/#{$name}-#{$font_weight}.otf');
+    src: url('@/assets/fonts/#{$name}-#{$font_weight}.otf?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/#{$name}-#{$font_weight}.woff2') format('woff2'),
+    url('@/assets/fonts/#{$name}-#{$font_weight}.woff') format('woff'),
+    url('@/assets/fonts/#{$name}-#{$font_weight}.ttf') format('truetype');
+    font-style: normal;
+  }
+}
+
+@each $font_weight,
+$size in $font_weights {
+  @include font-face(Yekan Bakh FaNum, 'YekanBakhFaNum', $font_weight, $size);
+
+  .font-#{"" + $font_weight} {
+    font-weight: $size;
+  }
+}
+
+////////////////////////////////////////////////////// FONT SIZE //////////////////////////////////////////////////////
+@include breakpoints.generate('text') using ($size) {
+  font-size: #{calc($size / 16)}rem !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////// LINE HEIGHT //////////////////////////////////////////////////////
+@include breakpoints.generate('line') using ($size) {
+  line-height: #{calc($size / 16)}rem !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////// TEXT STYLES //////////////////////////////////////////////////////
+
+.no-decoration {
+  text-decoration: none !important;
+}
+
+.no-white-space-wrap {
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.one-line-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.two-line-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.ltr {
+  direction: ltr !important;
+}
+
+.rtl {
+  direction: rtl !important;
+}

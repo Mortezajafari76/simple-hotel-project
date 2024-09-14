@@ -1,0 +1,12 @@
+stages:
+  - CREATE_MR
+
+CREATE_MR:
+  before_script:
+    - chmod +x ./mr.sh
+  stage: CREATE_MR
+  script:
+    - HOST=${CI_PROJECT_URL} CI_PROJECT_ID=${CI_PROJECT_ID} CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} GITLAB_USER_ID=${GITLAB_USER_ID} VIANA_TOKEN=${VIANA_TOKEN} ./mr.sh
+  except:
+    - develop
+    - master

@@ -1,0 +1,122 @@
+@use "breakpoints" as breakpoints;
+
+@include breakpoints.generate('rounded') using ($size) {
+  border-radius: #{calc($size / 16)}rem !important;
+}
+
+.flex {
+  @for $flex from 0 through 10 {
+    &-#{$flex} {
+      flex: $flex !important;
+    }
+  }
+
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-grow-0 {
+    flex-grow: 0 !important;
+  }
+
+  &-grow-1 {
+    flex-grow: 1 !important;
+  }
+
+  &-shrink-0 {
+    flex-grow: 0 !important;
+  }
+
+  &-shrink-1 {
+    flex-grow: 1 !important;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap !important;
+  }
+}
+
+.gap {
+  $base-size: 4px;
+
+  @for $size from 0 through 10 {
+    &-#{$size} {
+      gap: $size * $base-size;
+    }
+
+    &-column-#{$size} {
+      column-gap: $size * $base-size;
+    }
+
+    &-row-#{$size} {
+      row-gap: $size * $base-size;
+    }
+  }
+}
+
+.expand {
+  height: 100%;
+  width: 100%;
+
+  &-width {
+    width: 100%;
+  }
+
+  &-height {
+    height: 100%;
+  }
+
+  &-viewport {
+    height: 100vh;
+    width: 100vw;
+
+    &-width {
+      width: 100vw;
+    }
+
+    &-min-width {
+      min-width: 100vw;
+    }
+
+    &-height {
+      height: 100vh;
+    }
+
+    &-min-height {
+      min-height: 100vh;
+    }
+  }
+}
+
+.z {
+  @for $index from 0 through 20 {
+    &-#{$index} {
+      z-index: $index;
+    }
+  }
+
+  &-100 {
+    z-index: 100;
+  }
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.height-fit-content {
+  height: fit-content;
+}
+
+.with-transition {
+  transition: var(--btn-transition);
+}
+
+.overflow-clip {
+  overflow: clip !important;
+}

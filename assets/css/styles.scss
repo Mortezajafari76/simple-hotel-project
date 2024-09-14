@@ -1,0 +1,97 @@
+body {
+  // direction: rtl;
+  font-family: var(--font-family) !important;
+  letter-spacing: 0 !important;
+  box-sizing: border-box;
+}
+
+#docs-root {
+  direction: ltr !important;
+}
+
+.sbdocs {
+  direction: ltr !important;
+}
+
+html {
+  overflow: auto !important;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea,
+.v-application {
+  font-family: var(--font-family) !important;
+  letter-spacing: 0 !important;
+}
+
+.v-application .headline,
+.v-tab .v-btn,
+label {
+  font-family: var(--font-family) !important;
+  letter-spacing: 0 !important;
+}
+
+.v-application .elevation-5 {
+  box-shadow: 0px 0px 14px 1px rgb(0 0 0 / 5%),
+    0px 0px 14px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%) !important;
+}
+
+.v-btn,
+.v-tab {
+  letter-spacing: 0 !important;
+}
+
+.stepper-tabs .v-tab:before {
+  background: unset;
+}
+
+.stepper-tabs .v-item-group {
+  height: auto !important;
+}
+
+.stepper-tabs .v-slide-group .v-slide-group__content {
+  text-align: center;
+  justify-content: space-between !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: unset !important;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: flex !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.Vue-Toastification {
+  &__toast-body {
+    font-family: var(--font-family);
+    font-size: 0.85rem !important;
+    direction: rtl !important;
+  }
+
+  &__container {
+    direction: ltr !important;
+  }
+}
+
+.border-sizing {
+  box-sizing: border-box;
+}
+
+.dialog-borders {
+  border: 0.25rem solid var(--secondary) !important;
+}

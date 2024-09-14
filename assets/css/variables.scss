@@ -1,0 +1,17 @@
+:root {
+  --font-family: "Yekan Bakh FaNum";
+  --custom-border-radius: 1rem;
+  --header-size: 5rem;
+
+  --btn-transition: 0.3s all ease-in-out;
+
+  --swiper-pagination-color: var(--primary);
+
+  // admin drawer variables
+  --admin-drawer-categories-list-color: #9328d7;
+  --admin-drawer-categories-selected-icon-color: #9328d7;
+  --admin-drawer-background-linear-gradient: to bottom, #9328d7, #4a08b4;
+
+  --admin-pagination-active-color: #9328d7;
+  --admin-pagination-inactive-color: #dcdcdc;
+}

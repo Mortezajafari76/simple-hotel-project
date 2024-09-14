@@ -1,0 +1,37 @@
+$colors: (
+  "primary": #9328d7,
+  "secondary": #6105fe,
+  "tertiary": #4a08b4,
+  "dark-gray": #939394,
+  "success": #02ab69,
+  "gray": #CACACA,
+  "white": white,
+  "black": black,
+);
+
+:root {
+  --primary-rgb: 147, 40, 215;
+  --secondary-rgb: 97, 5, 254;
+  --tertiary-rgb: 74, 8, 180;
+  --success-rgb: 159, 184, 120;
+
+  @each $key,
+  $value in $colors {
+    --#{$key + ""}: #{$value};
+  }
+}
+
+@each $key,
+$value in $colors {
+  .#{$key + ""}-text {
+    color: #{$value};
+  }
+
+  .#{$key + ""}-bg {
+    background-color: #{$value};
+  }
+}
+
+.transparent-bg {
+  background-color: transparent !important;
+}

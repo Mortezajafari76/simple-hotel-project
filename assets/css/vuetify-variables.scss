@@ -1,0 +1,15 @@
+// @use 'vuetify' with ( 
+//   $font-size-root: 20px,
+// );
+
+body {
+  direction: rtl;
+}
+
+.v-application .text-start {
+  text-align: right !important;
+}
+
+.v-application p {
+  margin: 0;
+}
